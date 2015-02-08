@@ -1,3 +1,3 @@
-class Post < ActiveRecord::Migration
+class Post < ActiveRecord::Base
   belongs_to :user
 end

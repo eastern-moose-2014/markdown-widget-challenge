@@ -39,12 +39,22 @@ MarkdownWidget.prototype.splitText = function(string) {
 
 MarkdownWidget.prototype.convertText = function(textArray){
   var converted = []
+  var openTag = true
   var join = textArray.forEach(function(letter, index) {
     if (letter === '*') {
-      converted.push(index)
+      if (openTag === true) {
+        converted.push("<em>")
+        openTag = false
+      } else {
+        converted.push("</em>")
+        openTag = true
+      }
     }
     else if (letter === '_') {
       converted.push(index)
+    }
+    else {
+      converted.push(letter)
     }
   })
   console.log(converted);

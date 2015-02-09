@@ -9,6 +9,7 @@ $(document).ready(function() {
     mkd.getText(sourceText);
     var split = mkd.convertText(mkd.splitText());
     var viewString = mkd.updateView(split);
+    console.log(split);
     View.updateRendered(viewString);
     //convert the source to html to render
     //View.updateRendered(mkd.finalOutput)
@@ -42,19 +43,21 @@ MarkdownWidget.prototype.convertText = function(textArray){
   var openBoldTag = true
   var openAsterikTag = true
   var openUnderscoreTag = true
-  var join = textArray.forEach(function(letter, index) {
-    // ** logic will be to check if the current letter is * and the previous letter is *
-    // if (letter === '*' && letter[index-1] === '*') {
-    //   if (openBoldTag === true) {
-    //     converted.push("<strong>")
-    //     openBoldTag = false
-    //   }
-    //   else {
-    //     converted.push("</strong>")
-    //     openBoldTag = true
-    //   }
-    // } else
-   if (letter === '*') {
+  var join = textArray.forEach(function(letter, i) {
+
+    if (letter === '*' && textArray[i-1] === '*') {
+      if (openBoldTag === true) {
+        converted.push("<strong>")
+        openBoldTag = false
+        textArray[i-1] = " "
+      }
+      else {
+        converted.push("</strong>")
+        openBoldTag = true
+        textArray[i-1] = " "
+      }
+    }
+    else if (letter === '*' && textArray[i+1] !== '*' && textArray[i-1] !== '*') {
       if (openAsterikTag === true) {
         converted.push("<em>")
         openAsterikTag = false

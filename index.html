@@ -5,6 +5,7 @@
               rows="6" cols="60">Type **Markdown** here.</textarea>
     <div id="preview"> </div>
     <script src="node_modules/markdown/lib/markdown.js"></script>
+    <script src="jq_mini.js"></script>
     <script>
       function Editor(input, preview) {
         this.update = function () {
@@ -13,7 +14,6 @@
         input.editor = this;
         this.update();
       }
-      var $ = function (id) { return document.getElementById(id); };
       new Editor($("text-input"), $("preview"));
     </script>
   </body>

@@ -1,8 +1,18 @@
-function MarkdownWidget(source, preview) {
+function Mark(){
+  this.plainText = "";
+  this.plainHTML = "";
+  this.tagStart = {"<strong>" :/\*{2}/, "<em>" :/\*{1}/};
+  this.tagEnd = {"</strong>" :/\*{2}/}, "</em>" :/\*{1}/};
+};
+
+
+
+function MarkPresenter(source, preview) {
   this.source = source;
   this.preview = preview;
-  this.newText = "AWESOME TEXT";
-}
+  this.typedText = "awesometext";
+  this.convertedText = "awesomtext";
+};
 
 MarkdownWidget.prototype.convertText = function() {
   var sourceText = $(this.source).val();

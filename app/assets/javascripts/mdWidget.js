@@ -5,7 +5,10 @@ function Mark(){
   this.tagEnd = {"</strong>" :/\*{2}/}, "</em>" :/\*{1}/};
 };
 
-
+function MarkView(source, preview) {
+  this.$source = $(source);
+  this.$preview = $(preview);
+};
 
 function MarkPresenter(source, preview) {
   this.source = source;

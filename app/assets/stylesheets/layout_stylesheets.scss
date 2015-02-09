@@ -2,6 +2,8 @@ body {
   height:100%;
   width:100%;
   position:absolute;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
 }
 
 header {
@@ -22,7 +24,8 @@ header {
   height: 100%;
   border-right: 2px solid black;
   border-left: 2px solid black;
-  font-family: 'Lobster Two', cursive;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
   text-align: center;
   overflow:scroll;
 }

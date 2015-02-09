@@ -7,7 +7,9 @@ $(document).ready(function() {
   $source.keyup(function() {
     var sourceText = $('#source-text').val();
     mkd.getText(sourceText);
-    mkd.convertText(mkd.splitText());
+    var split = mkd.convertText(mkd.splitText());
+    var viewString = mkd.updateView(split);
+    View.updateRendered(viewString);
     //convert the source to html to render
     //View.updateRendered(mkd.finalOutput)
   });
@@ -19,7 +21,7 @@ var View = {};
 
 View.updateRendered = function (argument) {
 // Out put of the markdown goes here.
-  $("#preview").append("argument")
+  $("#preview").html(argument)
 }
 
 
@@ -42,6 +44,7 @@ MarkdownWidget.prototype.convertText = function(textArray){
   var openAsterikTag = true
   var openUnderscoreTag = true
   var join = textArray.forEach(function(letter, index) {
+    // ** logic will be to check if the current letter is * and the previous letter is *
     if (letter === '*') {
       if (openAsterikTag === true) {
         converted.push("<em>")
@@ -64,11 +67,11 @@ MarkdownWidget.prototype.convertText = function(textArray){
       converted.push(letter)
     }
   })
-  console.log(converted);
+  return(converted);
 }
 
-MarkdownWidget.prototype.updateView = function() {
-  //take converted text in HTML form and update the view
+MarkdownWidget.prototype.updateView = function(convertedArray) {
+  return (convertedArray.join(""));
 }
 
 

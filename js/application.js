@@ -19,13 +19,11 @@ $(document).ready(function() {
 
 var View = {};
 
-View.updateRendered = function (argument) {
-// Out put of the markdown goes here.
+View.updateRendered = function(argument) {
   $("#preview").html(argument)
 }
 
 
-//Below is the model
 
 function MarkdownWidget() {
   this.text = ""
@@ -41,11 +39,22 @@ MarkdownWidget.prototype.splitText = function(string) {
 
 MarkdownWidget.prototype.convertText = function(textArray){
   var converted = []
+  var openBoldTag = true
   var openAsterikTag = true
   var openUnderscoreTag = true
   var join = textArray.forEach(function(letter, index) {
     // ** logic will be to check if the current letter is * and the previous letter is *
-    if (letter === '*') {
+    // if (letter === '*' && letter[index-1] === '*') {
+    //   if (openBoldTag === true) {
+    //     converted.push("<strong>")
+    //     openBoldTag = false
+    //   }
+    //   else {
+    //     converted.push("</strong>")
+    //     openBoldTag = true
+    //   }
+    // } else
+   if (letter === '*') {
       if (openAsterikTag === true) {
         converted.push("<em>")
         openAsterikTag = false

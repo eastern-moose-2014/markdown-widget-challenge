@@ -39,19 +39,26 @@ MarkdownWidget.prototype.splitText = function(string) {
 
 MarkdownWidget.prototype.convertText = function(textArray){
   var converted = []
-  var openTag = true
+  var openAsterikTag = true
+  var openUnderscoreTag = true
   var join = textArray.forEach(function(letter, index) {
     if (letter === '*') {
-      if (openTag === true) {
+      if (openAsterikTag === true) {
         converted.push("<em>")
-        openTag = false
+        openAsterikTag = false
       } else {
         converted.push("</em>")
-        openTag = true
+        openAsterikTag = true
       }
     }
     else if (letter === '_') {
-      converted.push(index)
+      if (openUnderscoreTag === true) {
+        converted.push("<em>")
+        openUnderscoreTag = false
+      } else {
+        converted.push("</em>")
+        openUnderscoreTag = true
+      }
     }
     else {
       converted.push(letter)

@@ -24,6 +24,20 @@ Mark.prototype = {
   }
 }
 
+MarkPresenter.prototype.tagBegin = function(){
+  var expStart = this.tagStart;
+  for(var i in expStart) {
+    this.plainHTML = this.plainHTML.replace(expStart[i], i);
+  };
+};
+
+MarkPresenter.prototype.tagEnd = function(){
+  var expEnd = this.tagEnd;
+  for(var i in expEnd) {
+    this.plainHTML = this.plainHTML.replace(expEnd[i], i);
+  };
+};
+
 MarkdownWidget.prototype.convertText = function() {
   var sourceText = $(this.source).val();
   this.newText = sourceText;

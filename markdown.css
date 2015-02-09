@@ -1,9 +1,15 @@
 body {
-  color: red;
+  color: black;
+}
+
+#source-text {
+  width: 40em;
+  height: 20em ;
 }
 
 #preview {
   font-family: 'Helvetica';
   width: 60%;
   margin: 0 auto;
+  font-size: 3em;
 }

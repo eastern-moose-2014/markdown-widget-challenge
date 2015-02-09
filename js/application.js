@@ -38,14 +38,16 @@ MarkdownWidget.prototype.splitText = function(string) {
 }
 
 MarkdownWidget.prototype.convertText = function(textArray){
-  var join = textArray.forEach(function(letter) {
+  var converted = []
+  var join = textArray.forEach(function(letter, index) {
     if (letter === '*') {
-      console.log("Found one!")
+      converted.push(index)
     }
     else if (letter === '_') {
-      console.log("found another one!")
+      converted.push(index)
     }
   })
+  console.log(converted);
 }
 
 MarkdownWidget.prototype.updateView = function() {

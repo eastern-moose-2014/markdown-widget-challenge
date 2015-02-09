@@ -17,6 +17,13 @@ function MarkPresenter(source, preview) {
   this.convertedText = "awesomtext";
 };
 
+Mark.prototype = {
+  setUp: function(etc){
+    this.plainText = etc;
+    this.plainHTML = etc;
+  }
+}
+
 MarkdownWidget.prototype.convertText = function() {
   var sourceText = $(this.source).val();
   this.newText = sourceText;

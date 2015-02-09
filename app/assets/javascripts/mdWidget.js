@@ -24,6 +24,10 @@ Mark.prototype = {
   }
 }
 
+MarkView.prototype.convertText = function(etc) {
+  this.$preview.html("<p>" + etc + "</p>");
+};
+
 MarkPresenter.prototype.tagBegin = function(){
   var expStart = this.tagStart;
   for(var i in expStart) {

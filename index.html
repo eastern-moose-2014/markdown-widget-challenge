@@ -6,14 +6,8 @@
     <div id="preview"> </div>
     <script src="node_modules/markdown/lib/markdown.js"></script>
     <script src="jq_mini.js"></script>
+    <script src="editor.js"></script>
     <script>
-      function Editor(input, preview) {
-        this.update = function () {
-          preview.innerHTML = markdown.toHTML(input.value);
-        };
-        input.editor = this;
-        this.update();
-      }
       new Editor($("text-input"), $("preview"));
     </script>
   </body>

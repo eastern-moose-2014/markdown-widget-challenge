@@ -1,0 +1,14 @@
+#preview {
+  background-color: #CC33FF;
+
+}
+
+#text-input {
+  background-color: #FFCC66;
+}
+
+#test {
+  border: 1px solid black;
+  width: 50%;
+  height: 200px;
+}
